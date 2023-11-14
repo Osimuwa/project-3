@@ -1,2 +1,43 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+import sys
+
+import pygame
+from pygame.locals import QUIT
+
+pygame.init()
+
+
+pygame.init()
+DISPLAYSURF = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+pygame.display.set_caption('Space Invaders!')
+W, H = DISPLAYSURF.get_size()
+GFONT = pygame.font.SysFont('comicsans', 100)
+
+#sprites
+player = pygame.draw.rect(DISPLAYSURF, (255, 255, 255), (W/2, H/2, 50, 50))
+aliens = pygame.draw.rect(DISPLAYSURF , ((0,128,0)) , (W/5, H/5, 20, 20))
+
+
+
+def duplicate(aliens):
+  for d in aliens:
+      if d.energy >= d.max_energy * 0.9:
+          d.energy = d.energy / 2
+          new_d = d.duplicate()
+
+  if aliens == 1:
+   aliens = pygame.draw.rect(DISPLAYSURF , ((0,128,0)) ,)
+
+
+
+
+
+
+
+while True:
+   for event in pygame.event.get():
+       if event.type == QUIT:
+           pygame.quit()
+           sys.exit()
+   pygame.display.update()
